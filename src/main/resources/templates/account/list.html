@@ -6,11 +6,43 @@
     <title>Account</title>
 </head>
 <body>
-<div>Account</div>
-<div th:object="${account}">
-    <p>Id: <span th:text="*{id}">Sebastian</span></p>
-    <p>Phone: <span th:text="*{phone}">Pepper</span></p>
-    <p>Password: <span th:text="*{password}">Saturn</span></p>
+<div style="text-align: center">Account</div>
+<div th:object="${account}" style="text-align: center">
+    <p>Id: <span th:text="*{id}"></span></p>
+    <p>Phone: <span th:text="*{phone}"></span></p>
+    <p>Password: <span th:text="*{password}"></span></p>
+    <p>CreateAt: <span th:text="*{#temporals.format(createAt,'yyyy-MM-dd HH:mm:ss.SSS')}"></span></p>
 </div>
+<div style="text-align: center;color: brown">
+    <p th:text="'(th:text)用户ID:'+${uid}"></p>
+</div>
+<div style="text-align: center;color: brown">
+    <p th:utext="'(th:utext)用户ID:'+${uid}"></p>
+</div>
+
+<div style="text-align: center">
+    <p th:text="'(th:text)用户ID:'+${#strings.replace('wyuzww','w','y')}"></p>
+</div>
+
+<div style="text-align: center">
+    <p th:text="${#sets.size(names)}"></p>
+    <p th:text="${#sets.size(ids)}"></p>
+    <p th:text="${#sets.contains(ids,-1)}"></p>
+    <p th:text="${#sets.contains(names,'boot')}"></p>
+    <p th:text="${ids.get(0)}"></p>
+    <p th:text="${names[0]}"></p>
+</div>
+
+<div style="text-align: center">
+    <button type="button" onclick="main()">js</button>
+</div>
+
+<div style="text-align: center">
+    <p th:if="${#sets.size(ids) gt 4}">
+        你还不满18岁，不能够看电影！
+    </p>
+</div>
+
+<script type="application/javascript" th:src="@{/js/main.js}"></script>
 </body>
 </html>

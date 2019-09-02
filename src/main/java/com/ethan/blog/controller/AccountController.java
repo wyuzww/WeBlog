@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/account")
@@ -25,6 +29,19 @@ public class AccountController {
     public String get(@PathVariable String id, Model model) {
         Account account = accountService.getOne(Long.valueOf(id));
         model.addAttribute("account",account);
+
+        model.addAttribute("uid","<span style='color:red'>wyuzww</span>");
+
+        Set<String> allNames = new HashSet<String>() ;
+        List<Integer> allIds = new ArrayList<Integer>() ;
+        for (int x = 0 ; x < 5 ; x ++) {
+            allNames.add("boot-" + x) ;
+            allIds.add(x) ;
+        }
+        model.addAttribute("names", allNames) ;
+        model.addAttribute("ids", allIds) ;
+
+
         return "account/list";
     }
 
