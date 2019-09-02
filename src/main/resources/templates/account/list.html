@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+</head>
+<body>
+<div>Account</div>
+<div th:object="${account}">
+    <p>Id: <span th:text="*{id}">Sebastian</span></p>
+    <p>Phone: <span th:text="*{phone}">Pepper</span></p>
+    <p>Password: <span th:text="*{password}">Saturn</span></p>
+</div>
+</body>
+</html>
